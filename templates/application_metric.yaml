@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metric
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+ project: default
+ source:
+  repoURL: 'https://github.com/cuongphamthe185'
+  path: template-apps
+  targetRevision: HEAD
+  helm:
+    valueFiles:
+      - values.yaml
+ destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: toolchains
+ syncPolicy:
+  automated: {}
+  syncOptions:
+    - CreateNamespace=true
