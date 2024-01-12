@@ -9,7 +9,7 @@ spec:
  project: default
  source:
   repoURL: 'https://github.com/cuongphamthe185'
-  path: template-apps
+  path: /template-apps
   targetRevision: HEAD
   helm:
     valueFiles:
